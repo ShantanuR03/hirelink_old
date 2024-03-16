@@ -249,7 +249,7 @@ const Register = () => {
                                 type="file" 
                                 className="hidden" 
                                 onChange={(e) => setResumefile(e.target.files?.[0])}
-                    
+                  
                           />
                         </label>
                 </div>
