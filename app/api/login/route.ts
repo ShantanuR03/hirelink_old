@@ -1,8 +1,8 @@
 // Import necessary modules
 import { NextRequest, NextResponse } from "next/server";
-import User from "@/models/user";
-import bcryptjs from "bcryptjs";
-import jwt from "jsonwebtoken";
+import User from "../../models/user.ts";
+var bcryptjs = require('bcryptjs');
+var jwt = require('jsonwebtoken');
 import connectMongoDB from "@/libs/mongodb";
 
 // Connect to MongoDB
