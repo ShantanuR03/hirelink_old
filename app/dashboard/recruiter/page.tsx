@@ -71,7 +71,7 @@ const RecruiterDashbord = () => {
 
         <div>
           <div className="flex justify-evenly gap-10 mt-10">
-            <div className="bg-[#f7f7f7] h-auto w-1/5  rounded-3xl p-6 flex flex-col gap-y-3">
+            <div className="bg-[#f7f7f7] h-auto w-1/6  rounded-3xl p-6 flex flex-col gap-y-3">
               <div className="bg-[#efeafa] w-fit p-5 rounded-full m-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -86,19 +86,101 @@ const RecruiterDashbord = () => {
                 </svg>
               </div>
               <h1 className="text-black text-xl font-medium">Total Openings</h1>
-              <h1 className="text-black text-4xl">20</h1>
+              <p className="text-xl font-light">
+                <span className="font-semibold text-3xl">200</span>/200
+              </p>
             </div>
-            <div className="bg-[#e11d48] w-1/5 h-32 rounded-md p-4">
-              <h1 className="text-white">Total Openings</h1>
-              <h1 className="text-white text-4xl">20</h1>
+
+            {/* 2nd card, for pending interviews */}
+
+            <div className="bg-[#f7f7f7] h-auto w-1/6  rounded-3xl p-6 flex flex-col gap-y-3">
+              <div className="bg-[#cbf2f2] w-fit p-5 rounded-full m-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 14 14"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5.5 1h-5v5h5zm7.75 12.5h-5m0-5h5m-5 2.5h5m.25-5H8L10.75.5zM3 13.5a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5"
+                  />
+                </svg>
+              </div>
+              <h1 className="text-black text-xl font-medium">
+                Pending Interviews
+              </h1>
+              <p className="text-xl font-light">
+                <span className="font-semibold text-3xl">12</span>/200
+              </p>
             </div>
-            <div className="bg-[#e11d48] w-1/5 h-32 rounded-md p-4">
-              <h1 className="text-white">Total Openings</h1>
-              <h1 className="text-white text-4xl">20</h1>
+
+            {/* 3rd card, for pending offers */}
+
+            <div className="bg-[#f7f7f7] h-auto w-1/6  rounded-3xl p-6 flex flex-col gap-y-3">
+              <div className="bg-[#e5ede6] w-fit p-5 rounded-full m-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M11.5 14c4.14 0 7.5 1.57 7.5 3.5V20H4v-2.5c0-1.93 3.36-3.5 7.5-3.5m6.5 3.5c0-1.38-2.91-2.5-6.5-2.5S5 16.12 5 17.5V19h13v-1.5M11.5 5A3.5 3.5 0 0 1 15 8.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8 8.5A3.5 3.5 0 0 1 11.5 5m0 1A2.5 2.5 0 0 0 9 8.5a2.5 2.5 0 0 0 2.5 2.5A2.5 2.5 0 0 0 14 8.5A2.5 2.5 0 0 0 11.5 6Z"
+                  />
+                </svg>
+              </div>
+              <h1 className="text-black text-xl font-medium">Pending Offers</h1>
+              <p className="text-xl font-light">
+                <span className="font-semibold text-3xl">15</span>/200
+              </p>
             </div>
-            <div className="bg-[#e11d48] w-1/5 h-32 rounded-md p-4">
-              <h1 className="text-white">Total Openings</h1>
-              <h1 className="text-white text-4xl">20</h1>
+
+            {/* 4th card, for pending offers */}
+            <div className="bg-[#f7f7f7] h-auto w-1/6  rounded-3xl p-6 flex flex-col gap-y-3">
+              <div className="bg-[#efeafa] w-fit p-5 rounded-full m-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M11.5 14c4.14 0 7.5 1.57 7.5 3.5V20H4v-2.5c0-1.93 3.36-3.5 7.5-3.5m6.5 3.5c0-1.38-2.91-2.5-6.5-2.5S5 16.12 5 17.5V19h13v-1.5M11.5 5A3.5 3.5 0 0 1 15 8.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8 8.5A3.5 3.5 0 0 1 11.5 5m0 1A2.5 2.5 0 0 0 9 8.5a2.5 2.5 0 0 0 2.5 2.5A2.5 2.5 0 0 0 14 8.5A2.5 2.5 0 0 0 11.5 6Z"
+                  />
+                </svg>
+              </div>
+              <h1 className="text-black text-xl font-medium">Pending Offers</h1>
+              <p className="text-xl font-light">
+                <span className="font-semibold text-3xl">15</span>/200
+              </p>
+            </div>
+
+            {/* 5th card, for pending offers */}
+
+            <div className="bg-[#f7f7f7] h-auto w-1/6  rounded-3xl p-6 flex flex-col gap-y-3">
+              <div className="bg-[#efeafa] w-fit p-5 rounded-full m-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M11.5 14c4.14 0 7.5 1.57 7.5 3.5V20H4v-2.5c0-1.93 3.36-3.5 7.5-3.5m6.5 3.5c0-1.38-2.91-2.5-6.5-2.5S5 16.12 5 17.5V19h13v-1.5M11.5 5A3.5 3.5 0 0 1 15 8.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8 8.5A3.5 3.5 0 0 1 11.5 5m0 1A2.5 2.5 0 0 0 9 8.5a2.5 2.5 0 0 0 2.5 2.5A2.5 2.5 0 0 0 14 8.5A2.5 2.5 0 0 0 11.5 6Z"
+                  />
+                </svg>
+              </div>
+              <h1 className="text-black text-xl font-medium">Pending Offers</h1>
+              <p className="text-xl font-light">
+                <span className="font-semibold text-3xl">15</span>/200
+              </p>
             </div>
           </div>
         </div>
