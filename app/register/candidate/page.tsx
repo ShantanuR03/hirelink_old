@@ -3,7 +3,7 @@
 import React from 'react'
 import { Input } from "@/components/ui/input"
 import { useRouter } from 'next/navigation'
-
+import axios from 'axios'
 
 interface ContactInformation {
   firstName: string;
@@ -69,6 +69,7 @@ interface security {
 interface role {
   role: string;
 }
+
 
 interface ResumeInformation {
   contactInformation: ContactInformation;
@@ -224,30 +225,22 @@ const Register = () => {
   const router = useRouter()
 
   const handleRegister = async () => {
-    // send resumeInformation to server using fetch api
-
-    console.log(resumeInformation)
-    router.push('/register/success')    
-
-    await fetch('http://localhost:3000/api/register/', {
-      method: 'POST',
-      body: JSON.stringify(resumeInformation)
-    }).then(
-      response => response.json()
-    ).then(data => {
-      if (data.message === 'success') {
-        if(data.role === 'candidate') {
-          // redirect to candidate dashboard
-          router.push('/dashboard/candidate')
-
+    console.log(resumeInformation);
+      try {
+        // Make a POST request to your API route
+        const response = await axios.post('/api/register', resumeInformation);
+        console.log("Response data is: " , response.data);
+        if (response.data.message === 'candidate Created.' || response.data.message === 'recruiter Created.') {
+          // Handle success, e.g., show a success message
+          console.log(response.data.message);
+          router.push('/login')
         } else {
-          // redirect to employer dashboard
-          router.push('/dashboard/employer')
+          // Handle error, e.g., show an error message
+          console.error('Registration failed');
         }
-      }else {
-        alert('Error in registering')
+      } catch (error) {
+        console.error(error);
       }
-    })
   }
 
 

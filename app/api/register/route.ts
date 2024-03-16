@@ -7,7 +7,9 @@ import User from "../../models/userSchema";
 export async function POST(request: NextRequest) {
   console.log("Database");
   
-  console.log(request.body);
+  const resumeInformation = await request.json();
+
+  console.log(resumeInformation);
   
     //  const resumeInformation = request.body;
     //  console.log(resumeInformation);
