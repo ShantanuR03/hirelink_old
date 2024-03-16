@@ -68,6 +68,61 @@ const RecruiterDashbord = () => {
       applicants: 10,
       created_at: "2021-09-01",
     },
+    {
+      id: "5",
+      title: "Software Developer",
+      location: "Pune",
+      summary: "We are looking for a software developer with 2 years of experience",
+      role: "Full Time",
+      skills: ["React", "Node", "MongoDB"],
+      status: "Open",
+      applicants: 10,
+      created_at: "2021-09-01",
+    },
+    {
+      id: "6",
+      title: "Software Developer",
+      location: "Pune",
+      summary: "We are looking for a software developer with 2 years of experience",
+      role: "Full Time",
+      skills: ["React", "Node", "MongoDB"],
+      status: "Open",
+      applicants: 10,
+      created_at: "2021-09-01",
+    },
+    {
+      id: "7",
+      title: "Software Developer",
+      location: "Pune",
+      summary: "We are looking for a software developer with 2 years of experience",
+      role: "Full Time",
+      skills: ["React", "Node", "MongoDB"],
+      status: "Open",
+      applicants: 10,
+      created_at: "2021-09-01",
+    },
+    {
+      id: "8",
+      title: "Software Developer",
+      location: "Pune",
+      summary: "We are looking for a software developer with 2 years of experience",
+      role: "Full Time",
+      skills: ["React", "Node", "MongoDB"],
+      status: "Open",
+      applicants: 10,
+      created_at: "2021-09-01",
+    },
+    {
+      id: "9",
+      title: "Software Developer",
+      location: "Pune",
+      summary: "We are looking for a software developer with 2 years of experience",
+      role: "Full Time",
+      skills: ["React", "Node", "MongoDB"],
+      status: "Open",
+      applicants: 10,
+      created_at: "2021-09-01",
+    },
   ];
 
   const toggleDropdown = () => {
@@ -273,7 +328,7 @@ const RecruiterDashbord = () => {
 
       <div className="flex mt-52 mx-10 gap-x-4">
 
-        <div className="flex flex-col justify-between p-10 w-1/4 gap-y-5">
+        <div className="flex flex-col justify-between p-10 w-1/4 gap-y-5 overflow-scroll max-h-[850px]">
           {dummyJobOpenings.map((jobOpening) => (
             <>
               <div className="bg-white p-4 rounded-xl mb-4 w-full md:mr-4 relative">
@@ -304,7 +359,7 @@ const RecruiterDashbord = () => {
           ))}
         </div>
 
-        <div className="flex w-3/4 bg-slate-400">
+        <div className="flex w-3/4 bg-white rounded-xl shadow-xl p-5 m-6">
           Selected Job Opening
         </div>
         
