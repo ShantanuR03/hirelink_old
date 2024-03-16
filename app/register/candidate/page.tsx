@@ -67,7 +67,7 @@ interface security {
   confirmPassword: string;
 }
 interface role {
-  role: string;
+  data: string;
 }
 
 
@@ -194,7 +194,7 @@ const Register = () => {
       password: '',
       confirmPassword: ''
     },
-    role : {role: "candidate"}
+    role : { data:'candidate'}
   });
 
   const submitresume = async () => {
@@ -214,9 +214,9 @@ const Register = () => {
         password: '',
         confirmPassword: ''
       }
-      const role = 'candidate'
+      // const role = 'candidate'
       data.message.security = security
-      data.message.role.role = role
+      data.message.role = {data: 'candidate'}
       setResumeInformation(data.message)
       console.log(resumeInformation);
     })
