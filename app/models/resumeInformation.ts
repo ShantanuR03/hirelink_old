@@ -67,7 +67,8 @@ const resumeInformationSchema = new Schema({
     projects: [projectSchema],
     achievements: [achievementSchema],
     additionalInformation: additionalInformationSchema,
-    references: [referenceSchema]
+    references: [referenceSchema],
+    password: { type: String } 
 });
 
 const ResumeInformation = mongoose.models.ResumeInformation || mongoose.model('ResumeInformation', resumeInformationSchema);
