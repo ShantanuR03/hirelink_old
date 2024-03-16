@@ -195,7 +195,7 @@ const Register = () => {
     const formData = new FormData()
     formData.append('file', resumefile as Blob)
 
-    const response = await fetch('http://localhost:3000/', {
+    const response = await fetch('http://localhost:3000/api/extract/', {
       method: 'POST',
       body: formData
     })
@@ -258,7 +258,7 @@ const Register = () => {
               {/* upload resume  */}
               <button 
                 className='bg-[#e11d48] h-[50px] w-[200px] text-white px-2 rounded-md m-10'
-                onClick={() => alert('Resume Uploaded')}
+                onClick={submitresume}
               >
                 Upload Resume
               </button>
