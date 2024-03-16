@@ -222,6 +222,7 @@ const Register = () => {
     // send resumeInformation to server using fetch api
 
     console.log(resumeInformation)
+    router.push('/register/success')    
 
     // await fetch('http://localhost:3000/api/register/', {
     //   method: 'POST',
