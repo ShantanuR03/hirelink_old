@@ -142,7 +142,7 @@ const RecruiterDashbord = () => {
 
             {/* 4th card, for pending offers */}
             <div className="bg-[#f7f7f7] h-auto w-1/6  rounded-3xl p-6 flex flex-col gap-y-3">
-              <div className="bg-[#efeafa] w-fit p-5 rounded-full m-2">
+              <div className="bg-[#ffede2] w-fit p-5 rounded-full m-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="48"
