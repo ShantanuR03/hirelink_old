@@ -9,10 +9,7 @@ export async function POST(request: NextRequest) {
   
   const resumeInformation = await request.json();
 
-  console.log(resumeInformation);
-  
-    //  const resumeInformation = request.body;
-    //  console.log(resumeInformation);
+
      
 //   const resumeInformation = {
 //     contactInformation: {
@@ -120,45 +117,45 @@ export async function POST(request: NextRequest) {
 //     role : {role: "candidate"}
 //   };
 
-//   await connectMongoDB();
-//   // Hash the password
-//   const salt = await bcryptjs.genSalt(10);
-//   const hashedPassword = await bcryptjs.hash(
-//     resumeInformation.security.password,
-//     salt
-//   );
+  await connectMongoDB();
+  // Hash the password
+  const salt = await bcryptjs.genSalt(10);
+  const hashedPassword = await bcryptjs.hash(
+    resumeInformation.security.password,
+    salt
+  );
 
-//   const name =
-//     resumeInformation.contactInformation.firstName +
-//     " " +
-//     resumeInformation.contactInformation.lastName;
-//   const email = resumeInformation.contactInformation.email;
-//   const userrole = resumeInformation.role.role;
-//   console.log(userrole);
+  const name =
+    resumeInformation.contactInformation.firstName +
+    " " +
+    resumeInformation.contactInformation.lastName;
+  const email = resumeInformation.contactInformation.email;
+  const userrole = resumeInformation.role.role;
+  console.log(userrole);
   
 
-//   // Create a new user
-//   const newUser = await User.create({
-//     name,
-//     email,
-//     password: hashedPassword,
-//     role: userrole,
-//   });
-//   await newUser.save();
-//   const userId = newUser._id;
+  // Create a new user
+  const newUser = await User.create({
+    name,
+    email,
+    password: hashedPassword,
+    role: userrole,
+  });
+  await newUser.save();
+  const userId = newUser._id;
 
-//   // Create a new student or mentor
-//   if (userrole === "candidate") {
-//     const newResumeInformation = await ResumeInformation.create(resumeInformation);
+  // Create a new student or mentor
+  if (userrole === "candidate") {
+    const newResumeInformation = await ResumeInformation.create(resumeInformation);
 
-//     await newResumeInformation.save();
+    await newResumeInformation.save();
 
     
-//   } else if (userrole === "recruiter") {
-//     console.log("recruiter");
-//   } else {
-//     return NextResponse.json({
-//       message: 'Invalid role. Role must be either "student" or "mentor".',
-//     });
-//   }
+  } else if (userrole === "recruiter") {
+    console.log("recruiter");
+  } else {
+    return NextResponse.json({
+      message: 'Invalid role. Role must be either "student" or "mentor".',
+    });
+  }
 }
