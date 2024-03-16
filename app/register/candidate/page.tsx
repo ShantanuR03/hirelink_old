@@ -196,10 +196,21 @@ const Register = () => {
     const formData = new FormData()
     formData.append('file', resumefile as Blob)
 
-    const response = await fetch('http://localhost:3000/api/extract/', {
+    await fetch('http://localhost:3000/api/extract/', {
       method: 'POST',
       body: formData
+    }).then(
+      response => response.json()
+    ).then(data => {
+      const security = {
+        password: '',
+        confirmPassword: ''
+      }
+      data.message.security = security
+      setResumeInformation(data.message)
     })
+
+
 
   }
 

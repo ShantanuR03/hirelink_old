@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import { writeFile } from "fs/promises";
+import { exec } from "child_process";
 
 export async function POST(request: NextRequest) {
   const formData = await request.formData();
@@ -40,33 +41,37 @@ export async function POST(request: NextRequest) {
     // console.log("File written successfully");
 
     //call a process 'node extract.js' to extract the data from the resume
-    const { exec } = require("child_process");
     const extractScriptPath = path.join(
       process.cwd(),
       "/libs/extractDataFromPDF.ts"
     );
     const command = `node ${extractScriptPath}`;
+    return new Promise((resolve, reject) => {
     exec(command, (err: any, stdout: any, stderr: any) => {
       if (err) {
         console.error(err);
-        return NextResponse.json({ message: "Failed", status: 500 });
-      }
+        reject(NextResponse.json({ message: "Failed", status: 500 }));
+      } else{
 
-      //save command output to a temp variable
-      const temp = String(stdout);
+
       //remove markdown codeblock ticks from the output, and return the json object, only on first and last line
       stdout = stdout.replace(/```/g, "");
       stdout = stdout.replace("```json", "");
       stdout = stdout.replace("```JSON", "");
 
 
-      console.log("STDOUT Output: ", stdout);
+      //change output to json object
       let output = JSON.parse(stdout);
       console.log("Output: ", output);
-      return NextResponse.json({ 'output': output, status: 200 });
+      resolve(NextResponse.json({ message: output, status: 200 }));
+      }
+     
     });
-  } catch (error) {
-    console.log("Error occurred ", error);
+  }
+  );
+  }
+  catch (error) {
     return NextResponse.json({ message: "Failed", status: 500 });
   }
 }
+

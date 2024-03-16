@@ -104,10 +104,11 @@ const extractDataFromPDF = (relativePath) => {
 
       // Construct the prompt string
       const prompt =
-        "Your task is to structure this information into a JSON object according to a predefined schema. Fill in the fields of the schema according to the extracted information. If some data is not available, add null to the schema. In skills field, mention only names of technologies.\n" +
+        "Please structure the following information into a JSON object adhering to a predefined schema. Populate the fields based on the provided details. If any information is unavailable, use null. In the 'skills' field, include only the names of relevant technologies. give me only object in json  {} dont include ```json ``` in result\n" +
         scheema +
         "\n" +
         extractedText;
+
 
       const requestBody = {
         contents: [
