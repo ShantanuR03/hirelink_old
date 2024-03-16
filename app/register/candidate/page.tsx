@@ -200,9 +200,6 @@ const Register = () => {
       body: formData
     })
 
-
-
-
   }
 
 

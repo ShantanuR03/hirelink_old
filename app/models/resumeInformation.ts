@@ -51,12 +51,6 @@ const additionalInformationSchema = new Schema({
     interests: [{ type: String }]
 });
 
-const referenceSchema = new Schema({
-    name: { type: String },
-    title: { type: String },
-    company: { type: String },
-    contactInformation: { type: String }
-});
 
 const resumeInformationSchema = new Schema({
     user : User,
@@ -69,7 +63,6 @@ const resumeInformationSchema = new Schema({
     projects: [projectSchema],
     achievements: [achievementSchema],
     additionalInformation: additionalInformationSchema,
-    references: [referenceSchema],
     
 });
 

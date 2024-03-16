@@ -6,28 +6,25 @@ const contactInformationSchema = new Schema({
     lastName: { type: String },
     email: { type: String, required: true, unique: true },
     phone: { type: String },
+    address: { type: String },
 });
 
-const personalInfoSchema = new Schema({
-    degree: { type: String },
-    major: { type: String },
-    university: { type: String },
-    graduationDate: { type: String },
-})
+const companyInformationSchema = new Schema({
+    companyName: { type: String },
+    companyAddress: { type: String },
+    companyPhone: { type: String },
+    companyEmail: { type: String },
+    companyWebsite: { type: String },
+    companyDescription: { type: String },
+});
 
-const recruiterRoleSchema = new Schema({
-    jobTitle: { type: String },
-    company: { type: String },
-    location: { type: String },
-    startDate: { type: String },
-})
 
-const resumeInformationSchema = new Schema({
-    user : User,
+const recruiterSchema = new Schema({
+    user: { type: Schema.Types.ObjectId, ref: 'User' },
     contactInformation: contactInformationSchema,
-    personalInfo: personalInfoSchema,
-    recruiterRole: recruiterRoleSchema,
+    componeyInformation: companyInformationSchema,
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now },
 });
 
-const ResumeInformation = mongoose.models.ResumeInformation || mongoose.model('ResumeInformation', resumeInformationSchema);
-export default ResumeInformation;
+export default mongoose.model('Recruiter', recruiterSchema);
