@@ -1,4 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
+import User from "../models/userSchema"
 
 const contactInformationSchema = new Schema({
     firstName: { type: String },
@@ -58,6 +59,7 @@ const referenceSchema = new Schema({
 });
 
 const resumeInformationSchema = new Schema({
+    user : User,
     contactInformation: contactInformationSchema,
     summary: { type: String },
     education: [educationSchema],
@@ -68,7 +70,7 @@ const resumeInformationSchema = new Schema({
     achievements: [achievementSchema],
     additionalInformation: additionalInformationSchema,
     references: [referenceSchema],
-    password: { type: String } 
+    
 });
 
 const ResumeInformation = mongoose.models.ResumeInformation || mongoose.model('ResumeInformation', resumeInformationSchema);

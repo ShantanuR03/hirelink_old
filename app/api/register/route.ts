@@ -1,32 +1,44 @@
-import connectMongoDB from "@/libs/mongodb";
+import connectMongoDB from "@/libs/mongodb" ;
 import { NextRequest, NextResponse } from "next/server";
-import bcryptjs from "bcryptjs";
+const bcryptjs = require('bcryptjs');
 import ResumeInformation from "../../models/resumeInformation";
+import User from "../../models/userSchema"
 
-export async function POST(request: NextRequest) {
-    const {
-        contactInformation,
-        summary,
-        education,
-        workExperience,
-        skills,
-        certifications,
-        projects,
-        achievements,
-        additionalInformation,
-        references,
-        password
-    } = await request.json();
+
+export async function POST(request : NextRequest){
+   // Create a new resume information object
+   const {
+    user,
+    contactInformation,
+    summary,
+    education,
+    workExperience,
+    skills,
+    certifications,
+    projects,
+    achievements,
+    additionalInformation,
+    references,
+} = await request.json();
 
     await connectMongoDB();
+    // Hash the password
+    const salt = await bcryptjs.genSalt(10);
+    const hashedPassword = await bcryptjs.hash(user.password, salt);
+ 
+    let name = user.name;
+    let email = user.email;
+    let role = user.role;
 
-    try {
-        // Hash the password
-        const salt = await bcryptjs.genSalt(10);
-        const hashedPassword = await bcryptjs.hash(password, salt);
+    // Create a new user
+    const newUser  = await User.create({name, email, password: hashedPassword,  role});
+    await newUser.save();
+    const userId = newUser._id;
 
-        // Create a new resume information object
+    // Create a new student or mentor
+    if(role === 'candidate'){
         const newResumeInformation = new ResumeInformation({
+            user,
             contactInformation,
             summary,
             education,
@@ -37,7 +49,6 @@ export async function POST(request: NextRequest) {
             achievements,
             additionalInformation,
             references,
-            password: hashedPassword // Save hashed password
         });
 
         await newResumeInformation.save();
@@ -45,8 +56,11 @@ export async function POST(request: NextRequest) {
             message: "Resume Information Created.",
             newResumeInformation
         });
-    } catch (error) {
-        console.error("Error creating resume information:", error);
-        return NextResponse.error(new Error("Failed to create resume information."));
+    }
+    else if (role === 'recruiter') {
+        console.log("recruiter");
+    } 
+    else {
+        return NextResponse.json({ message: 'Invalid role. Role must be either "student" or "mentor".' });
     }
 }
