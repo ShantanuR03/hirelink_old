@@ -1,10 +1,17 @@
 const PDFExtract = require("pdf.js-extract").PDFExtract;
 const pdfExtract = new PDFExtract();
 const fs = require("fs");
+const path = require("path");
 
-const extractDataFromPDF = (path) => {
+const extractDataFromPDF = (relativePath) => {
   return new Promise((resolve, reject) => {
-    const buffer = fs.readFileSync(path);
+
+    //modify path to the file
+    const filepath = path.join(process.cwd(), relativePath);
+
+    // console.log("File path: ", filepath);
+
+    const buffer = fs.readFileSync(filepath);
     const options = {}; /* see below */
     let extractedText = ""; // String to store extracted text
     let scheema = `Schema :
@@ -138,3 +145,9 @@ const extractDataFromPDF = (path) => {
   });
 };
 
+extractDataFromPDF('app/assets/resume.pdf').then((data) => {
+  console.log(data);
+}
+).catch((error) => {
+  console.log(error);
+});
