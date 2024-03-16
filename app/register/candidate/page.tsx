@@ -191,6 +191,7 @@ const Register = () => {
 
   const submitresume = async () => {
 
+    alert("lalala")
     // send file to server using fetch api
     const formData = new FormData()
     formData.append('file', resumefile as Blob)
