@@ -233,7 +233,7 @@ const Register = () => {
         if (response.data.message === 'candidate Created.' || response.data.message === 'recruiter Created.') {
           // Handle success, e.g., show a success message
           console.log(response.data.message);
-          router.push('/login')
+          router.push('/register/success')
         } else {
           // Handle error, e.g., show an error message
           console.error('Registration failed');
