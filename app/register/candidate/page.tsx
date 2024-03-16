@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { Input } from "@/components/ui/input"
+import { useRouter } from 'next/navigation'
 
 
 interface ContactInformation {
@@ -78,6 +79,7 @@ interface ResumeInformation {
   additionalInformation: AdditionalInformation;
   references: Reference[];
   security: security;
+  role: string;
 }
 
 interface FormData{
@@ -186,7 +188,8 @@ const Register = () => {
     security: {
       password: '',
       confirmPassword: ''
-    }
+    },
+    role: 'candidate'
   });
 
   const submitresume = async () => {
@@ -206,12 +209,39 @@ const Register = () => {
         password: '',
         confirmPassword: ''
       }
+      const role = 'candidate'
       data.message.security = security
+      data.message.role = role
       setResumeInformation(data.message)
     })
+  }
 
+  const router = useRouter()
 
+  const handleRegister = async () => {
+    // send resumeInformation to server using fetch api
 
+    console.log(resumeInformation)
+
+    // await fetch('http://localhost:3000/api/register/', {
+    //   method: 'POST',
+    //   body: JSON.stringify(resumeInformation)
+    // }).then(
+    //   response => response.json()
+    // ).then(data => {
+    //   if (data.message === 'success') {
+    //     if(data.role === 'candidate') {
+    //       // redirect to candidate dashboard
+    //       router.push('/dashboard/candidate')
+
+    //     } else {
+    //       // redirect to employer dashboard
+    //       router.push('/dashboard/employer')
+    //     }
+    //   }else {
+    //     alert('Error in registering')
+    //   }
+    // })
   }
 
 
@@ -273,7 +303,9 @@ const Register = () => {
               </button>
 
               {/* Register button */}
-              <button className='bg-black h-[50px] w-[200px] text-white px-2 rounded-md m-10'>
+              <button className='bg-black h-[50px] w-[200px] text-white px-2 rounded-md m-10
+              ' onClick={handleRegister}
+              >
                 Register
               </button>
       </div>
