@@ -3,7 +3,7 @@ import mongoose, { Schema } from 'mongoose';
 const contactInformationSchema = new Schema({
     firstName: { type: String },
     lastName: { type: String },
-    email: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: false },
     phone: { type: String },
     address: { type: String }
 });
@@ -55,8 +55,8 @@ const securitySchema = new mongoose.Schema({
     confirmPassword: { type: String }
 });
 
-const roleSchema = new mongoose.Schema({
-    role: {type: String}
+const roleScheema = new mongoose.Schema({
+    data: { type: String}
 });
 
 
@@ -71,7 +71,7 @@ const resumeInformationSchema = new Schema({
     achievements: [achievementSchema],
     additionalInformation: additionalInformationSchema,
     security : securitySchema,
-    role : roleSchema
+    role : roleScheema
 });
 
 const ResumeInformation = mongoose.models.ResumeInformation || mongoose.model('ResumeInformation', resumeInformationSchema);

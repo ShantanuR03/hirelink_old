@@ -67,7 +67,7 @@ interface security {
   confirmPassword: string;
 }
 interface role {
-  role: string;
+  data: string;
 }
 
 interface ResumeInformation {
@@ -92,127 +92,107 @@ interface FormData {
 const Register = () => {
   const [resumefile, setResumefile] = React.useState<File | null>(null);
 
-  const [resumeInformation, setResumeInformation] =
-    React.useState<ResumeInformation>({
-      contactInformation: {
-        firstName: "John",
-        lastName: "Doe",
-        email: "johndoe@example.com",
-        phone: "123-456-7890",
-        address: "123 Main St, City, Country",
+  const [resumeInformation, setResumeInformation] = React.useState<ResumeInformation>({
+    
+    contactInformation: {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@example.com',
+      phone: '123-456-7890',
+      address: '123 Main St, City, Country'
+    },
+    summary: 'Experienced software engineer with expertise in web development and a passion for problem-solving.',
+    education: [
+      {
+        degree: 'Bachelor of Science',
+        school: 'University of Example',
+        major: 'Computer Science',
+        graduationDate: 'May 2022',
+        aggrigateMarks: 3.8 // Dummy aggregate marks
       },
-      summary:
-        "Experienced software engineer with expertise in web development and a passion for problem-solving.",
-      education: [
-        {
-          degree: "Bachelor of Science",
-          school: "University of Example",
-          major: "Computer Science",
-          graduationDate: "May 2022",
-          aggrigateMarks: 3.8, // Dummy aggregate marks
-        },
-        {
-          degree: "Master of Business Administration",
-          school: "Business School",
-          major: "Business Administration",
-          graduationDate: "December 2024",
-          aggrigateMarks: 3.9, // Dummy aggregate marks
-        },
-      ],
-      workExperience: [
-        {
-          jobTitle: "Software Engineer",
-          company: "TechCorp",
-          location: "New York, NY",
-          startDate: "June 2022",
-          endDate: "Present",
-          description:
-            "Developing scalable web applications using React and Node.js.",
-        },
-        {
-          jobTitle: "Intern",
-          company: "StartupX",
-          location: "San Francisco, CA",
-          startDate: "May 2021",
-          endDate: "August 2021",
-          description:
-            "Assisted in front-end development tasks and conducted market research.",
-        },
-      ],
-      skills: ["JavaScript", "React", "Node.js", "HTML", "CSS", "Python"],
-      certifications: [
-        {
-          name: "AWS Certified Developer",
-          issuingOrganization: "Amazon Web Services",
-          issuedDate: "January 2023",
-          expiryDate: "January 2026",
-        },
-        {
-          name: "Google Certified Professional Cloud Architect",
-          issuingOrganization: "Google Cloud",
-          issuedDate: "March 2023",
-          expiryDate: "March 2026",
-        },
-      ],
-      projects: [
-        {
-          title: "E-commerce Website",
-          date: "2022",
-          description:
-            "Developed a full-stack e-commerce website using MERN stack.",
-        },
-        {
-          title: "Data Analysis Tool",
-          date: "2021",
-          description:
-            "Created a data analysis tool using Python and pandas library.",
-        },
-      ],
-      achievements: [
-        {
-          title: "Dean's List for Academic Excellence",
-          date: "2021",
-        },
-        {
-          title: "Hackathon Winner",
-          date: "2020",
-        },
-      ],
-      additionalInformation: {
-        languages: ["Spanish", "French"],
-        volunteerExperience: "Volunteered at local animal shelter.",
-        publications: "Published research paper on artificial intelligence.",
-        interests: ["Hiking", "Photography"],
+      {
+        degree: 'Master of Business Administration',
+        school: 'Business School',
+        major: 'Business Administration',
+        graduationDate: 'December 2024',
+        aggrigateMarks: 3.9 // Dummy aggregate marks
+      }
+    ],
+    workExperience: [
+      {
+        jobTitle: 'Software Engineer',
+        company: 'TechCorp',
+        location: 'New York, NY',
+        startDate: 'June 2022',
+        endDate: 'Present',
+        description: 'Developing scalable web applications using React and Node.js.'
       },
-      references: [
-        {
-          name: "Jane Smith",
-          title: "Senior Software Engineer",
-          company: "TechCorp",
-          contactInformation: "janesmith@example.com, 987-654-3210",
-        },
-      ],
-      security: {
-        password: "",
-        confirmPassword: "",
+      {
+        jobTitle: 'Intern',
+        company: 'StartupX',
+        location: 'San Francisco, CA',
+        startDate: 'May 2021',
+        endDate: 'August 2021',
+        description: 'Assisted in front-end development tasks and conducted market research.'
+      }
+    ],
+    skills: ['JavaScript', 'React', 'Node.js', 'HTML', 'CSS', 'Python'],
+    certifications: [
+      {
+        name: 'AWS Certified Developer',
+        issuingOrganization: 'Amazon Web Services',
+        issuedDate: 'January 2023',
+        expiryDate: 'January 2026'
       },
-      role: { role: "candidate" },
-    });
-
-  const [blurredBackground, removeBlurredBackground] = React.useState(true);
-  useEffect(() => {
-    if (resumeInformation) {
-      removeBlurredBackground(false);
-      setLoadingState(false);
-    }
-  }, [resumeInformation]);
-
-  useEffect(() => {
-    removeBlurredBackground(true);
-    setLoadingState(false);
-  }, []);
-
-  const [loadingState, setLoadingState] = React.useState(false);
+      {
+        name: 'Google Certified Professional Cloud Architect',
+        issuingOrganization: 'Google Cloud',
+        issuedDate: 'March 2023',
+        expiryDate: 'March 2026'
+      }
+    ],
+    projects: [
+      {
+        title: 'E-commerce Website',
+        date: '2022',
+        description: 'Developed a full-stack e-commerce website using MERN stack.'
+      },
+      {
+        title: 'Data Analysis Tool',
+        date: '2021',
+        description: 'Created a data analysis tool using Python and pandas library.'
+      }
+    ],
+    achievements: [
+      {
+        title: 'Dean\'s List for Academic Excellence',
+        date: '2021'
+      },
+      {
+        title: 'Hackathon Winner',
+        date: '2020'
+      }
+    ],
+    additionalInformation: {
+      languages: ['Spanish', 'French'],
+      volunteerExperience: 'Volunteered at local animal shelter.',
+      publications: 'Published research paper on artificial intelligence.',
+      interests: ['Hiking', 'Photography']
+    },
+    references: [
+      {
+        name: 'Jane Smith',
+        title: 'Senior Software Engineer',
+        company: 'TechCorp',
+        contactInformation: 'janesmith@example.com, 987-654-3210'
+      }
+    ],
+    security: {
+      password: '',
+      confirmPassword: ''
+    },
+    role : { data:'candidate'}
+  });
 
   const submitresume = async () => {
     alert("lalala");
@@ -224,24 +204,23 @@ const Register = () => {
     const formData = new FormData();
     formData.append("file", resumefile as Blob);
 
-    await fetch("http://localhost:3000/api/extract/", {
-      method: "POST",
-      body: formData,
+    await fetch('http://localhost:3000/api/extract/', {
+      method: 'POST',
+      body: formData
+    }).then(
+      response => response.json()
+    ).then(data => {
+      const security = {
+        password: '',
+        confirmPassword: ''
+      }
+      // const role = 'candidate'
+      data.message.security = security
+      data.message.role = {data: 'candidate'}
+      setResumeInformation(data.message)
+      console.log(resumeInformation);
     })
-      .then((response) => response.json())
-      .then((data) => {
-        const security = {
-          password: "",
-          confirmPassword: "",
-        };
-        const role = "candidate";
-        data.message.security = security;
-        data.message.role = role;
-
-        setResumeInformation(data.message);
-        console.log(resumeInformation);
-      });
-  };
+  }
 
   const router = useRouter();
 
