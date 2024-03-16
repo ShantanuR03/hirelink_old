@@ -66,6 +66,9 @@ interface security {
   password: string;
   confirmPassword: string;
 }
+interface role {
+  role: string;
+}
 
 interface ResumeInformation {
   contactInformation: ContactInformation;
@@ -79,7 +82,7 @@ interface ResumeInformation {
   additionalInformation: AdditionalInformation;
   references: Reference[];
   security: security;
-  role: string;
+  role: role;
 }
 
 interface FormData{
@@ -92,6 +95,7 @@ const Register = () => {
   const [resumefile, setResumefile] = React.useState<File | null>(null)
 
   const [resumeInformation, setResumeInformation] = React.useState<ResumeInformation>({
+    
     contactInformation: {
       firstName: 'John',
       lastName: 'Doe',
@@ -189,7 +193,7 @@ const Register = () => {
       password: '',
       confirmPassword: ''
     },
-    role: 'candidate'
+    role : {role: "candidate"}
   });
 
   const submitresume = async () => {
@@ -211,8 +215,9 @@ const Register = () => {
       }
       const role = 'candidate'
       data.message.security = security
-      data.message.role = role
+      data.message.role.role = role
       setResumeInformation(data.message)
+      console.log(resumeInformation);
     })
   }
 
@@ -224,25 +229,25 @@ const Register = () => {
     console.log(resumeInformation)
     router.push('/register/success')    
 
-    // await fetch('http://localhost:3000/api/register/', {
-    //   method: 'POST',
-    //   body: JSON.stringify(resumeInformation)
-    // }).then(
-    //   response => response.json()
-    // ).then(data => {
-    //   if (data.message === 'success') {
-    //     if(data.role === 'candidate') {
-    //       // redirect to candidate dashboard
-    //       router.push('/dashboard/candidate')
+    await fetch('http://localhost:3000/api/register/', {
+      method: 'POST',
+      body: JSON.stringify(resumeInformation)
+    }).then(
+      response => response.json()
+    ).then(data => {
+      if (data.message === 'success') {
+        if(data.role === 'candidate') {
+          // redirect to candidate dashboard
+          router.push('/dashboard/candidate')
 
-    //     } else {
-    //       // redirect to employer dashboard
-    //       router.push('/dashboard/employer')
-    //     }
-    //   }else {
-    //     alert('Error in registering')
-    //   }
-    // })
+        } else {
+          // redirect to employer dashboard
+          router.push('/dashboard/employer')
+        }
+      }else {
+        alert('Error in registering')
+      }
+    })
   }
 
 

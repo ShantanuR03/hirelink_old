@@ -1,5 +1,4 @@
 import mongoose, { Schema } from 'mongoose';
-import User from "../models/userSchema"
 
 const contactInformationSchema = new Schema({
     firstName: { type: String },
@@ -51,9 +50,17 @@ const additionalInformationSchema = new Schema({
     interests: [{ type: String }]
 });
 
+const securitySchema = new mongoose.Schema({
+    password: { type: String },
+    confirmPassword: { type: String }
+});
+
+const roleSchema = new mongoose.Schema({
+    role: {type: String}
+});
+
 
 const resumeInformationSchema = new Schema({
-    user : User,
     contactInformation: contactInformationSchema,
     summary: { type: String },
     education: [educationSchema],
@@ -63,7 +70,8 @@ const resumeInformationSchema = new Schema({
     projects: [projectSchema],
     achievements: [achievementSchema],
     additionalInformation: additionalInformationSchema,
-    
+    security : securitySchema,
+    role : roleSchema
 });
 
 const ResumeInformation = mongoose.models.ResumeInformation || mongoose.model('ResumeInformation', resumeInformationSchema);
