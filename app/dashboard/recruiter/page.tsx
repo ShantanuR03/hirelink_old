@@ -1,18 +1,85 @@
 "use client";
 import React from "react";
+import Image from "next/image";
+
+
+interface JobOpening{
+  id: string;
+  title: string;
+  location: string;
+  summary: string;
+  role : string;
+  skills: string[];
+  status: string;
+  applicants: number;
+  created_at: string;
+}
+
+
 
 const RecruiterDashbord = () => {
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
+
+  const [jobOpenings, setJobOpenings] = React.useState<JobOpening[]>([]);
+
+  // dummy data for job openings
+  const dummyJobOpenings: JobOpening[] = [
+    {
+      id: "1",
+      title: "Software Developer",
+      location: "Pune",
+      summary: "We are looking for a software developer with 2 years of experience",
+      role: "Full Time",
+      skills: ["React", "Node", "MongoDB"],
+      status: "Open",
+      applicants: 10,
+      created_at: "2021-09-01",
+    },
+    {
+      id: "2",
+      title: "Software Developer",
+      location: "Pune",
+      summary: "We are looking for a software developer with 2 years of experience",
+      role: "Full Time",
+      skills: ["React", "Node", "MongoDB"],
+      status: "Open",
+      applicants: 10,
+      created_at: "2021-09-01",
+    },
+    {
+      id: "3",
+      title: "Software Developer",
+      location: "Pune",
+      summary: "We are looking for a software developer with 2 years of experience",
+      role: "Full Time",
+      skills: ["React", "Node", "MongoDB"],
+      status: "Open",
+      applicants: 10,
+      created_at: "2021-09-01",
+    },
+    {
+      id: "4",
+      title: "Software Developer",
+      location: "Pune",
+      summary: "We are looking for a software developer with 2 years of experience",
+      role: "Full Time",
+      skills: ["React", "Node", "MongoDB"],
+      status: "Open",
+      applicants: 10,
+      created_at: "2021-09-01",
+    },
+  ];
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
   return (
-    <div className="w-screen h-screen flex flex-col bg-[#f5e8e8]">
+    <div className="w-screen h-auto flex flex-col bg-[#f5e8e8]">
       {/* Header */}
       <div className="bg-[#17191c] h-28 border-gray-100 border-b-[1px] py-4 px-6 flex justify-between items-center">
         <div className="flex items-center">
+          <Image src={"/dark_logo.png"} width={50} height={50} alt={"Logo"} />
           <span className="text-xl text-white font-bold mr-4">HireLink</span>
         </div>
         <div className="relative">
@@ -20,8 +87,23 @@ const RecruiterDashbord = () => {
             className="flex items-center cursor-pointer"
             onClick={toggleDropdown}
           >
-            <span className="mr-4 text-white">Andrew New</span>
-            <div className="w-8 h-8 rounded-full bg-gray-500"></div>
+            <span className="mr-4 text-white">Swapnil Kapale</span>
+            <div className="w-12 h-12 rounded-full bg-white flex justify-center items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+              >
+                <g fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    stroke-linejoin="round"
+                    d="M4 18a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"
+                  />
+                  <circle cx="12" cy="7" r="3" />
+                </g>
+              </svg>
+            </div>
           </div>
           {dropdownOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg z-10">
@@ -185,6 +267,52 @@ const RecruiterDashbord = () => {
           </div>
         </div>
       </div>
+
+      {/* load created job opening cards
+       */}
+
+      <div className="flex mt-52 mx-10 gap-x-4">
+
+        <div className="flex flex-col justify-between p-10 w-1/4 gap-y-5">
+          {dummyJobOpenings.map((jobOpening) => (
+            <>
+              <div className="bg-white p-4 rounded-xl mb-4 w-full md:mr-4 relative">
+                <div className="absolute -top-4 left-4">
+                  <div className="w-12 h-12 rounded-full bg-[#e11d48] flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">
+                      {jobOpening.applicants}
+                    </span>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-400 mb-2 mt-6">Total Applicants</p>
+                <h1 className="text-xl font-normal">{jobOpening.title}</h1>
+
+                <div className="flex">
+                  <p className="text-sm text-gray-400 mb-2 mt-6">
+                    {jobOpening.location} 
+                  </p>
+                  
+                  <p className="text-sm text-gray-400 mb-2 mt-6">
+                    {jobOpening.role} 
+                  </p>
+                  <p className="text-sm text-gray-400 mb-2 mt-6">
+                    {jobOpening.created_at} 
+                  </p>
+                </div>
+              </div>
+            </>
+          ))}
+        </div>
+
+        <div className="flex w-3/4 bg-slate-400">
+          Selected Job Opening
+        </div>
+        
+      </div>
+
+
+
+
     </div>
   );
 };
