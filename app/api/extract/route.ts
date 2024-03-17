@@ -34,8 +34,8 @@ export async function POST(request: NextRequest): Promise<void | Response> {
     );
     const command = `node ${extractScriptPath}`;
 
-    return new Promise((resolve: (value: Response) => void, reject: (reason?: any) => void) => {
-      exec(command, (err: any, stdout: any, stderr: any) => {
+    return new Promise<Response>((resolve, reject) => {
+      exec(command, (err, stdout, stderr) => {
         if (err) {
           console.error(err);
           reject(new Error("Extraction failed"));
