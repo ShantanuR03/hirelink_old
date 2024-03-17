@@ -71,12 +71,45 @@ The website will be accessible at http://localhost:3000.
 ## Website Preview
 
 ### Next.js Website
+![Screenshot 1](/public/UI/hero.png)
+Here is our hero section which enables new users to get started with the website and existing user to login to our website.
+##
 
-![Screenshot 1](/screenshots/nextjs-website-screenshot1.png)
-*Description of the screenshot.*
+![Screenshot 2](/public/UI/deside.png)
+A new user can be a recruiter or a candidate which can be differentiated on this screen.
+##
 
-![Screenshot 2](/screenshots/nextjs-website-screenshot2.png)
-*Description of the screenshot.*
+![Screenshot 3](/public/UI/candidatereg.png)
+If a user selects 'Register as a Candidate' then he will be redirected to this page where he can fill up his resume.
+##
+
+![Screenshot 4](/public/UI/loadingcv.png)
+Our System will analyze the uploaded Resume
+##
+
+![Screenshot 5](/public/UI/cvfilled.png)
+After analyzing the Resume, all the fields of candidate profile will be filled in automatically
+##
+
+![Screenshot 6](/public/UI/successreg.png)
+The Candidate will be successfully registered on our database 
+##
+
+![Screenshot 7](/public/UI/recruitreg.png)
+The Recruiter will be successfully registered on our database
+##
+
+![Screenshot 10](/public/UI/signin.png)
+Users can sign In on our Platform
+##
+
+![Screenshot 8](/public/UI/dash1.png)
+Recruiter will be able to see total openings, completed interviews, applications accepted and rejected
+##
+
+![Screenshot 9](/public/UI/dash2.png)
+The recruiter will be able to see the potential matching candidates for a particular job opening, matching is done according to candidates profile
+#
 
 
 ## Installation of HireLink App
