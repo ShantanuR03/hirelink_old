@@ -1,66 +1,57 @@
-// Import necessary modules
 import { NextRequest, NextResponse } from "next/server";
-import User from "@/app/models/userSchema";
-var bcryptjs = require('bcryptjs');
-var jwt = require('jsonwebtoken');
-import connectMongoDB from "@/libs/mongodb";
+import path from "path";
+import { writeFile } from "fs/promises";
+import { exec } from "child_process";
 
-// Connect to MongoDB
-connectMongoDB();
+export async function POST(request: NextRequest): Promise<void | Response> {
+  try {
+    const formData = await request.formData();
+    const resume = formData.get("file");
 
-export async function POST(request: NextRequest) {
-    try {
-        // Destructure email and password from the request JSON body
-        const { email, password } = await request.json();
-        
-        const user = await User.findOne({ email });
-
-        if (!user) {
-            // If the user is not found, return an error response
-            console.log({
-                error: "User does not exist."
-            });
-            return NextResponse.json({ 
-                status: 404,
-                error: "User does not exist." 
-            });
-        }
-        // Compare the password
-        const validPassword = await bcryptjs.compare(password, user.password);
-
-        if (!validPassword) {
-            // If the password is invalid, return an error response
-            return NextResponse.json({ 
-                status: 401,
-                error: "Invalid password." });
-        }
-
-        // Create token data
-        const tokenData = {
-            id: user._id,
-            email: user.email,
-            role: user.role
-        };
-
-        // Create a token with an expiration of 1 hour
-        const token = jwt.sign(tokenData, process.env.SECRET_KEY!, { expiresIn: '1h' });
-        // Return success response with token
-        const response =  NextResponse.json({
-            status : 200,
-            message: "Successfully logged in.",
-            role : user.role
-        });
-
-        response.cookies.set("token", token, {
-            httpOnly: true
-        });
-
-        return response;
-    } catch (error) {
-        // Log the error and return an error response
-        console.error("Error logging in:", error);
-        return NextResponse.json({ 
-            status: 500,
-            error: "Error logging in. Please try again." });
+    if (!resume) {
+      return NextResponse.json({ error: "No file received." }, { status: 400 });
     }
+
+    if (!(resume instanceof Blob)) {
+      return NextResponse.json({ error: "File is not a Blob." }, { status: 400 });
+    }
+
+    const buffer = Buffer.from(await resume.arrayBuffer());
+    const filename = resume.name.replaceAll(" ", "_");
+
+    if (!filename.endsWith(".pdf")) {
+      return NextResponse.json({ error: "Only PDF files are allowed." }, { status: 400 });
+    }
+
+    await writeFile(
+      path.join(process.cwd(), "/app/assets/" + "resume.pdf"),
+      buffer
+    );
+
+    const extractScriptPath = path.join(
+      process.cwd(),
+      "/libs/extractDataFromPDF.ts"
+    );
+    const command = `node ${extractScriptPath}`;
+
+    return new Promise((resolve, reject) => {
+      exec(command, (err: any, stdout: any, stderr: any) => {
+        if (err) {
+          console.error(err);
+          reject(NextResponse.json({ message: "Failed", status: 500 }));
+        } else {
+          stdout = stdout.replace(/```/g, "");
+          stdout = stdout.replace("```json", "");
+          stdout = stdout.replace("```JSON", "");
+
+          let output = JSON.parse(stdout);
+          console.log("Output: ", output);
+          resolve(NextResponse.json({ message: output, status: 200 }));
+        }
+      });
+    });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ message: "Failed", status: 500 });
+  }
 }
