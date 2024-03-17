@@ -215,7 +215,6 @@ const Register = () => {
   const [loadingState, setLoadingState] = React.useState(false);
 
   const submitresume = async () => {
-    alert("lalala");
     // set loading state
     setLoadingState(true);
     // remove the upload resume h1 block and add loading spinner
@@ -248,24 +247,25 @@ const Register = () => {
 
   const handleRegister = async () => {
     console.log(resumeInformation);
-    try {
-      // Make a POST request to your API route
-      const response = await axios.post("/api/register", resumeInformation);
-      console.log("Response data is: ", response.data);
-      if (
-        response.data.message === "candidate Created." ||
-        response.data.message === "recruiter Created."
-      ) {
-        // Handle success, e.g., show a success message
-        console.log(response.data.message);
-        router.push("/register/success");
-      } else {
-        // Handle error, e.g., show an error message
-        console.error("Registration failed");
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    router.push("/register/success");
+    // try {
+    //   // Make a POST request to your API route
+    //   const response = await axios.post("/api/register", resumeInformation);
+    //   console.log("Response data is: ", response.data);
+    //   if (
+    //     response.data.message === "candidate Created." ||
+    //     response.data.message === "recruiter Created."
+    //   ) {
+    //     // Handle success, e.g., show a success message
+    //     console.log(response.data.message);
+    //     router.push("/register/success");
+    //   } else {
+    //     // Handle error, e.g., show an error message
+    //     console.error("Registration failed");
+    //   }
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
 
   return (
