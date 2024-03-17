@@ -3,7 +3,7 @@ import path from "path";
 import { writeFile } from "fs/promises";
 import { exec } from "child_process";
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<void | Response> {
   try {
     const formData = await request.formData();
     const resume = formData.get("file");
