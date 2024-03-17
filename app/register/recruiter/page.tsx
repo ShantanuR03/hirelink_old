@@ -89,8 +89,7 @@ const RecruiterRegisterPage = () => {
         <Image src={"/dark_logo.png"} alt="logo" width={300} height={300} />
 
         <h1 className="text-2xl font-bold text-white text-center">
-          Find the best talent or your <br />
-          company
+          Find the best talent For <br /> your company
         </h1>
       </div>
 
