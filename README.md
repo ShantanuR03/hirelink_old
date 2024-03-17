@@ -8,8 +8,7 @@ Hire-Link is a comprehensive platform developed by Team Dracarys to streamline t
 ## Problem Statement
 
 The traditional hiring process can be time-consuming and inefficient for both job applicants and recruiters. Applicants are often required to manually
-apply for multiple jobs and recruiters must sift through numerous resumes to find suitable candidates. It involves a lot of manual work and is often time
-consuming and expensive. Sorting through numerous applications and resumes can be overwhelming, and sometimes candidates with the right
+apply for multiple jobs and recruiters must sift through numerous resumes to find suitable candidates. It involves a lot of manual work and is often time-consuming and expensive. Sorting through numerous applications and resumes can be overwhelming, and sometimes candidates with the right
 qualifications are overlooked. This can lead to missed opportunities for both parties and a lack of diversity in the hiring process.
 
 
@@ -145,19 +144,22 @@ The recruiter will be able to see the potential matching candidates for a partic
     <img src="assets/App%20Preview/Splash.jpg" alt="SplashScreen.jpg" height="500" width="235">
   <img src="assets/App%20Preview/onBoarding1.jpg" alt="onBoarding1.jpg" height="500" width="235">
   <img src="assets/App%20Preview/onBoarding2.jpg" alt="onBoarding2.jpg" height="500" width="235">
-  <img src="assets/App%20Preview/onBoarding3.jpg" alt="onBoarding3.jpg" height="500" width="235">
 </div>
 
 <div style="display: flex;">
+    <img src="assets/App%20Preview/onBoarding3.jpg" alt="onBoarding3.jpg" height="500" width="235">
   <img src="assets/App%20Preview/Login.jpg" alt="Login.jpg" height="500" width="235">
   <img src="assets/App%20Preview/SelectResume.jpg" alt="SelectResume.jpg" height="500" width="235">
-  <img src="assets/App%20Preview/ResumeUploaded.jpg" alt="UploadResume.jpg" height="500" width="235">
-  <img src="assets/App%20Preview/Form.jpg" alt="Form.jpg" height="500" width="235">
 </div>
 
 <div style="display: flex;">
+    <img src="assets/App%20Preview/ResumeUploaded.jpg" alt="UploadResume.jpg" height="500" width="235">
+  <img src="assets/App%20Preview/Form.jpg" alt="Form.jpg" height="500" width="235">
  <img src="assets/App%20Preview/Offered%20Jobs.jpg" alt="JobOfferDetails.jpg" height="500" width="235">
- <img src="assets/App%20Preview/Statistics.jpg" alt="Statistics.jpg" height="500" width="235">
+</div>
+
+<div style="display: flex;">
+    <img src="assets/App%20Preview/Statistics.jpg" alt="Statistics.jpg" height="500" width="235">
   <img src="assets/App%20Preview/Chat_Bot.jpg" alt="ChatBot.jpg" height="500" width="235">
 </div>
 
