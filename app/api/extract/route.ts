@@ -38,7 +38,7 @@ export async function POST(request: NextRequest): Promise<void | Response> {
       exec(command, (err: any, stdout: any, stderr: any) => {
         if (err) {
           console.error(err);
-          reject(NextResponse.json({ message: "Failed", status: 500 }));
+          reject(new Error("Extraction failed"));
         } else {
           stdout = stdout.replace(/```/g, "");
           stdout = stdout.replace("```json", "");
