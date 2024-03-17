@@ -1,4 +1,6 @@
-# Hire-Link
+<div style="text-align:center;">
+    <img src="assets/inverted_logo.png" alt="Logo" height="100" width="100"> <h1>Hirelink</h1>
+</div>
 
 Hire-Link is a comprehensive platform developed by Team Dracarys to streamline the hiring process for both recruiters and candidates. The platform consists of a Next.js website for recruiters and a Flutter mobile application for candidates. It aims to automate the traditional hiring process, providing a seamless experience for both parties.
 
@@ -49,18 +51,7 @@ The project addresses the inefficiencies of traditional hiring processes by leve
 - **GitHub**: Version control and collaboration platform for team development.
 
 
-## Screenshots
-
-### Next.js Website
-
-![Screenshot 1](/screenshots/nextjs-website-screenshot1.png)
-*Description of the screenshot.*
-
-![Screenshot 2](/screenshots/nextjs-website-screenshot2.png)
-*Description of the screenshot.*
-
-
-## Installation
+## Installation of our Website
 
 ### Next.js Website
 1. Clone the repository:
@@ -76,6 +67,67 @@ The project addresses the inefficiencies of traditional hiring processes by leve
    npm run dev
    
 The website will be accessible at http://localhost:3000.
+
+## Website Preview
+
+### Next.js Website
+
+![Screenshot 1](/screenshots/nextjs-website-screenshot1.png)
+*Description of the screenshot.*
+
+![Screenshot 2](/screenshots/nextjs-website-screenshot2.png)
+*Description of the screenshot.*
+
+
+## Installation of HireLink App
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/hirelink.git
+
+2. flutter pub get:
+
+   ```bash
+   flutter pub get
+
+3. Run the app::
+
+   ```bash
+   flutter pub run
+
+## App Preview
+1. **Splash Screen**: Displays branding elements and app logo while the app loads, creating a visually engaging start.
+2. **Onboarding Screens**: Guides users through the app's features and functionalities, offering a smooth introduction to its capabilities.
+3. **Login Screen**: Prompts users to authenticate their identity, ensuring secure access to personal data and app features.
+4. **Resume Selection Screen**: Allows users to upload their resumes directly from their device, simplifying the application process.
+5. **Resume Uploaded Screen**: Confirms successful resume upload, providing users with assurance and peace of mind.
+6. **Form Screen**: Collects additional details required for job applications, enhancing the user's profile and increasing chances of success.
+7. **Offered Jobs Screen**: Presents users with a curated list of available job opportunities, enabling efficient browsing and selection.
+8. **Chat Bot Screen**: Offers an interactive chat experience for users to seek assistance or clarification on any queries they may have.
+9. **Statistics Screen**: Provides insightful data and analytics related to job search activities, empowering users with valuable insights for informed decision-making.
+
+
+<div style="display: flex;">
+    <img src="assets/App%20Preview/Splash.jpg" alt="SplashScreen.jpg" height="500" width="235">
+  <img src="assets/App%20Preview/onBoarding1.jpg" alt="onBoarding1.jpg" height="500" width="235">
+  <img src="assets/App%20Preview/onBoarding2.jpg" alt="onBoarding2.jpg" height="500" width="235">
+  <img src="assets/App%20Preview/onBoarding3.jpg" alt="onBoarding3.jpg" height="500" width="235">
+</div>
+
+<div style="display: flex;">
+  <img src="assets/App%20Preview/Login.jpg" alt="Login.jpg" height="500" width="235">
+  <img src="assets/App%20Preview/SelectResume.jpg" alt="SelectResume.jpg" height="500" width="235">
+  <img src="assets/App%20Preview/ResumeUploaded.jpg" alt="UploadResume.jpg" height="500" width="235">
+  <img src="assets/App%20Preview/Form.jpg" alt="Form.jpg" height="500" width="235">
+</div>
+
+<div style="display: flex;">
+ <img src="assets/App%20Preview/Offered%20Jobs.jpg" alt="JobOfferDetails.jpg" height="500" width="235">
+ <img src="assets/App%20Preview/Statistics.jpg" alt="Statistics.jpg" height="500" width="235">
+  <img src="assets/App%20Preview/Chat_Bot.jpg" alt="ChatBot.jpg" height="500" width="235">
+</div>
+
 
 
 ## Contributing
