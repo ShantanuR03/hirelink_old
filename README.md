@@ -171,6 +171,24 @@ The source code for the HireLink app is available in the following GitHub reposi
 [GitHub Repository](https://github.com/Sanket80/HireLink-App.git)
 
 
+## Enhancements Planned:
+
+1. **Integration of Calendar, Mail, and Meet APIs**: HireLink will be upgraded to seamlessly integrate with calendar, mail, and meet APIs. This integration will facilitate scheduling meetings by automatically checking for free time slots using AI algorithms.
+
+2. **Automated Meeting Scheduling**: Users will be able to schedule meetings effortlessly, with the system intelligently suggesting available time slots based on participants' schedules.
+
+3. **Tailored Email Generation**: The platform will generate personalized email content tailored to each job and candidate. This feature will optimize communication efficiency and enhance engagement between recruiters and candidates.
+
+4. **Automatic Calendar Updates**: Scheduled meetings will be automatically synced with users' calendars, ensuring timely reminders and efficient time management.
+
+
+## Video Demo
+
+Watch our project demo video on Google Drive:
+
+[Project Demo Video](https://drive.google.com/file/d/1cipeFD78BN13mC07_6oXMCL1gnpE7ymB/view?usp=sharing)
+
+
 
 
 ## Contributing
