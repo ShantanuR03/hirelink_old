@@ -116,7 +116,7 @@ The recruiter will be able to see the potential matching candidates for a partic
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/hirelink.git
+   git clone https://github.com/Sanket80/HireLink-App.git
 
 2. flutter pub get:
 
@@ -162,6 +162,14 @@ The recruiter will be able to see the potential matching candidates for a partic
     <img src="assets/App%20Preview/Statistics.jpg" alt="Statistics.jpg" height="500" width="235">
   <img src="assets/App%20Preview/Chat_Bot.jpg" alt="ChatBot.jpg" height="500" width="235">
 </div>
+
+
+## Repository Link
+
+The source code for the HireLink app is available in the following GitHub repository:
+
+[GitHub Repository](https://github.com/Sanket80/HireLink-App.git)
+
 
 
 
